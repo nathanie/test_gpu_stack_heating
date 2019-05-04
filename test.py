@@ -7,7 +7,7 @@ from keras.utils import to_categorical
 
 from keras import backend as K
 import tensorflow as tf
-with K.tf.device('/gpu:1'):
+with K.tf.device('/gpu:0'):
     config = tf.ConfigProto(intra_op_parallelism_threads=4,\
            inter_op_parallelism_threads=4, allow_soft_placement=True,\
            device_count = {'CPU' : 1, 'GPU' : 1})
