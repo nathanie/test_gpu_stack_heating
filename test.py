@@ -1,18 +1,13 @@
-from keras.applications import DenseNet201
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID";
+ 
+# The GPU id to use, usually either "0" or "1";
+os.environ["CUDA_VISIBLE_DEVICES"]="0";
 from keras.datasets import cifar100
 from keras.layers import *
 from keras.models import *
 from keras.utils import to_categorical
 (X_train,y_train) , (X_test,y_test) = cifar100.load_data()
-
-from keras import backend as K
-import tensorflow as tf
-with K.tf.device('/gpu:0'):
-    config = tf.ConfigProto(intra_op_parallelism_threads=4,\
-           inter_op_parallelism_threads=4, allow_soft_placement=True,\
-           device_count = {'CPU' : 1, 'GPU' : 1})
-    session = tf.Session(config=config)
-    K.set_session(session)
 
 def res_block():
     inp=Input(shape=(None,None,64))
