@@ -1,6 +1,6 @@
 import os
 import tensorflow as tf
-prtnt(tf.test.is_gpu_available())
+print(tf.test.is_gpu_available())
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID";
  
 # The GPU id to use, usually either "0" or "1";
