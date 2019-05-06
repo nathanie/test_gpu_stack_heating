@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 WORKDIR /root/
 
 # Add libcuda dummy dependency
+RUN mkdir control
 ADD control .
 RUN apt-get update && \
 	apt-get install --yes equivs && \
